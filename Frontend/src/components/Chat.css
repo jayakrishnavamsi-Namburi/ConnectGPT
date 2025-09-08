@@ -1,0 +1,58 @@
+.chats {
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.h1color {
+  color: var(--color-text); /* theme aware */
+}
+
+.userDiv {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.9rem;
+}
+
+.gptDiv {
+  text-align: left;
+   font-size: 1.2rem; /* increase this value */
+}
+
+.userMessage {
+  background-color: var(--bg-user-msg); /* theme-aware background */
+  padding: 12px 20px;
+  border-radius: 14px;
+  margin-left: 15rem;
+  max-width: 500px;
+  width: fit-content;
+
+  font-size: 1.2rem; /* increase font size */
+  color: var(--color-text); /* theme-aware text color */
+
+  border: 0.3px solid var(--border-color); /* border for user messages */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* optional subtle shadow */
+}
+
+
+.hljs {
+  border-radius: 14px !important;
+}
+pre, .hljs {
+  font-size: 1.1rem; /* adjust as needed */
+  line-height: 1.4;
+}
+
+pre {
+  white-space: pre-wrap;
+  background: var(--bg-content); /* theme aware for code blocks */
+  color: var(--color-text);
+  padding: 10px;
+  border-radius: 12px;
+   font-size: 1.2rem; /* increase this value */
+}
+
+
+

@@ -1,0 +1,230 @@
+/* ---------------------- Sidebar Base ---------------------- */
+.sidebar {
+  width: 350px;
+  background: var(--bg-header);
+  box-shadow: 3px 0 48px rgba(44,44,84,0.18);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--color-text);
+  height: 100vh;
+  padding: 16px 0 0 0;
+  position: relative;
+  z-index: 30;
+  border-right: 1px solid var(--border-color);
+  /* border-radius: 17px 0 0 17px; */
+}
+
+.sidebar-top {
+  padding: 0 18px 10px 18px;
+}
+.history{
+  margin-left: 5rem;
+}
+/* ---------------------- New Chat Button ---------------------- */
+.new-chat-btn {
+  background: linear-gradient(90deg,#08a9ff 0%,#5167ff 80%);
+  color: #fff;
+  border: none;
+  border-radius: 13px;
+  padding: 12px 22px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(44,44,84,0.12);
+  font-size: 1.1em;
+  transition: background 0.18s, box-shadow 0.18s;
+}
+
+.new-chat-btn:hover {
+  background: linear-gradient(90deg,#007bff 0%,#254fff 100%);
+  box-shadow: 0 3px 14px rgba(44,44,84,0.16);
+}
+
+.logo {
+  height: 30px;
+  width: 52px;
+  margin-right: 7px;
+}
+
+/* ---------------------- Sidebar Middle / History ---------------------- */
+.sidebar-middle {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 13px;
+  padding: 0 14px;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+.sidebar-middle::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar-middle::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 8px;
+}
+
+.sidebar-middle::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 8px;
+  border: 2px solid var(--scrollbar-track);
+  transition: background-color 0.3s;
+}
+
+.sidebar-middle::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+ul.history {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.history li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-content);
+  color: var(--color-text);
+  padding: 10px 13px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.14s, color 0.12s;
+  position: relative;
+}
+
+ul.history li.highlighted {
+  background: var(--bg-user-msg);
+  color: var(--btn-text);
+}
+
+ul.history li:hover:not(.highlighted) {
+  background: var(--hover-bg);
+  color: var(--btn-text);
+}
+
+ul.history li i.fa-trash {
+  color: var(--danger-color);
+  margin-left: 14px;
+  opacity: 0.75;
+  cursor: pointer;
+  font-size: 0.97em;
+  transition: color 0.14s, opacity 0.2s;
+}
+
+ul.history li i.fa-trash:hover {
+  color: var(--danger-hover);
+  opacity: 1;
+}
+
+/* ---------------------- Sidebar Bottom ---------------------- */
+.sidebar-bottom {
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-footer);
+  text-align: center;
+  padding: 14px 0;
+  font-size: 0.92em;
+  color: var(--text-muted);
+  border-radius: 0 0 0 13px;
+  letter-spacing: 0.04em;
+}
+
+/* ---------------------- Sidebar Toggle Button ---------------------- */
+.sidebar-close-button {
+  position: absolute;
+  top: 20px;
+  left: 14rem; /* inside sidebar */
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  cursor: pointer;
+  z-index: 120;
+}
+
+.sidebar-toggle-button {
+  position: fixed;
+  top: 15px;
+  left: 0.9rem; /* Top-right for mobile */
+  z-index: 110;
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(90deg,#08a9ff 0%,#5167ff 100%);
+  border-radius: 8px;
+  cursor: pointer;
+  display: none; /* hidden on desktop */
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(79,195,247,0.5);
+  color: white;
+  font-size: 1.4rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.sidebar-toggle-button:hover {
+  background: linear-gradient(90deg,#005FCC 0%,#274FC6 100%);
+}
+
+/* ---------------------- Sidebar Overlay ---------------------- */
+.sidebar-overlay {
+  display: none;
+}
+
+/* ---------------------- Mobile Styles ---------------------- */
+@media (max-width: 800px) {
+  /* Show toggle button */
+  .sidebar-toggle-button {
+    display: flex;
+  }
+  .history{
+    margin-left: 4rem;
+    font-size: 1.3rem;
+  }
+  /* Sidebar default hidden */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 280px;
+    transform: translateX(-110%);
+    transition: transform 0.3s ease-in-out;
+    border-radius: 0 0 12px 0;
+    box-shadow: 6px 0 24px rgba(0,0,0,0.5);
+    background: rgba(23,27,40,0.98);
+    z-index: 100;
+  }
+
+  /* Open state */
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* Overlay */
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.5);
+    z-index: 90;
+  }
+
+  /* Adjust sidebar middle padding */
+  .sidebar-middle {
+    padding: 0 7px;
+  }
+
+  .new-chat-btn {
+    padding: 12px 18px;
+    font-size: 1em;
+  }
+}

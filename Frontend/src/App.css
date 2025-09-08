@@ -1,0 +1,107 @@
+html, body, #root, .app {
+  height: 100vh;      /* Full viewport height */
+  width: 100vw;       /* Full viewport width */
+  margin: 0;
+  padding: 0;
+  overflow: hidden;   /* Prevent scrolling */
+}
+
+.app {
+  display: flex;
+  flex-direction: row; /* Sidebar left, chat right horizontally */
+  height: 100vh;
+  width: 100vw;
+  background-color: #171717; /* Dark background */
+  overflow: hidden;          /* Prevent scrollbars */
+}
+
+/* Ensure sidebar and chatWindow fill full height */
+.sidebar {
+  height: 100vh;
+  overflow-y: auto; /* Allow sidebar internal scroll if needed */
+}
+
+.chatWindow {
+  height: 100vh;
+  flex-grow: 1; /* Take remaining width */
+  overflow: hidden; /* Prevent scrollbars */
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+/* Default light theme */
+body[data-theme="light"] {
+  --bg-color: #f8f9fa;
+  --text-color: #1a202c;
+  --card-bg: #ffffff;
+  --btn-bg: #667eea;
+  --btn-text: #ffffff;
+}
+
+/* Dark theme */
+body[data-theme="dark"] {
+  --bg-color: #1a202c;
+  --text-color: #e2e8f0;
+  --card-bg: #2d3748;
+  --btn-bg: #4c51bf;
+  --btn-text: #e2e8f0;
+}
+
+/* Apply theme vars */
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+}
+
+.login-form,
+.dropDown {
+  background: var(--card-bg);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+}
+
+.login-btn,
+.theme-btn {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+
+
+/* Light Theme */
+body.light {
+  --bg-main: #ffffff;
+  --bg-header: #f5f6fa;
+  --bg-content: #fdfdfd;
+  --bg-footer: #f0f2f5;
+  --bg-user-msg: linear-gradient(90deg,#007bff 0%,#5167ff 100%);
+  --bg-assistant-msg: #e9e9ee;
+  --color-text: #1a1a1a;
+  --color-input-bg: #f5f6fa;
+  --color-input-text: #1a1a1a;
+  --color-scrollbar: #c2c2d6;
+  --color-scrollbar-track: #f5f5f5;
+}
+
+/* Dark Theme */
+body.dark {
+  --bg-main: #23272f;
+  --bg-header: #2e3142;
+  --bg-content: #1e222b;
+  --bg-footer: #272c36;
+  --bg-user-msg: linear-gradient(90deg,#007bff 0%,#5167ff 100%);
+  --bg-assistant-msg: #353a45;
+  --color-text: #e3e4ee;
+  --color-input-bg: #1e222b;
+  --color-input-text: #e2e7f2;
+  --color-scrollbar: #6c6e7e;
+  --color-scrollbar-track: #181920;
+}
