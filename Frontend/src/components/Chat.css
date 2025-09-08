@@ -4,6 +4,9 @@
   overflow-y: auto;
   flex-direction: column;
   gap: 0.5rem;
+  padding: 1rem; /* padding inside the container */
+  padding-bottom: 6rem; /* extra space at bottom */
+  max-height: 80vh; /* or whatever fits your layout */
 }
 
 .h1color {
@@ -19,6 +22,7 @@
 .gptDiv {
   text-align: left;
    font-size: 1.2rem; /* increase this value */
+   bottom: 2rem;
 }
 
 .userMessage {

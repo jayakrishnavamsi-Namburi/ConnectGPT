@@ -149,7 +149,11 @@ ul.history li i.fa-trash:hover {
   cursor: pointer;
   z-index: 120;
 }
-
+@media (min-width: 1024px) {
+  .sidebar-close-button {
+    display: none;
+  }
+}
 .sidebar-toggle-button {
   position: fixed;
   top: 15px;

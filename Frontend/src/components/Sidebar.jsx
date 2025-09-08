@@ -14,7 +14,7 @@ function Sidebar() {
 
   // Fetch all threads from backend
   const getAllThreads = async () => {
-    if (!token) return; // only fetch if logged in
+    if (!token) return;
     try {
       const response = await fetch(`${API_BASE_URL}/thread`, {
         headers: {
@@ -87,19 +87,30 @@ function Sidebar() {
 
   return (
     <>
-      {/* Toggle button */}
-      <button 
-        className="sidebar-toggle-button" 
-        onClick={toggleSidebar} 
-        aria-label="Toggle sidebar menu"
-      >
-        {sidebarOpen ? <i className="fa-solid fa-xmark"></i> : <i className="fa-solid fa-bars"></i>}
-      </button>
+      {/* Toggle button - show only when sidebar is closed */}
+      {!sidebarOpen && (
+        <button 
+          className="sidebar-toggle-button" 
+          onClick={toggleSidebar} 
+          aria-label="Open sidebar menu"
+        >
+          <i className="fa-solid fa-bars"></i>
+        </button>
+      )}
 
       {/* Overlay */}
       {sidebarOpen && <div className="sidebar-overlay" onClick={toggleSidebar}></div>}
 
       <section className={`sidebar ${sidebarOpen ? "open" : ""}`}>
+        {/* Close button inside sidebar */}
+        <button 
+          className="sidebar-close-button" 
+          onClick={toggleSidebar} 
+          aria-label="Close sidebar"
+        >
+          <i className="fa-solid fa-xmark"></i>
+        </button>
+
         <div className="sidebar-top">
           <button onClick={createNewChat} className="new-chat-btn">
             <img src="src/assets/blacklogo.png" alt="logo" className="logo" />
@@ -109,9 +120,9 @@ function Sidebar() {
 
         <div className="sidebar-middle">
           <ul className="history">
-            {allThreads?.map((thread, idx) => (
+            {allThreads?.map((thread) => (
               <li
-                key={idx}
+                key={thread.threadId}
                 onClick={() => changeThread(thread.threadId)}
                 className={thread.threadId === currThreadId ? "highlighted" : ""}
               >
