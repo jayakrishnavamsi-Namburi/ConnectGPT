@@ -8,12 +8,34 @@
   font-size: 1.1rem;
   font-weight: 600;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: sticky;    /* stick to top */
+  top: 0;              /* top edge */
+  z-index: 1000;       /* ensure it's above other content */
 }
 
 .nav-actions {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+/* Sidebar toggle button */
+.sidebar-toggle-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  display: inline-flex; /* make it inline inside navbar */
+  align-items: center;
+  margin-right: 1rem; /* spacing from title */
+  z-index: 101;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .sidebar-toggle-button {
+    font-size: 1.5rem; /* bigger on mobile */
+  }
 }
 
 .theme-btn {
@@ -99,7 +121,7 @@
     align-items: center;
     padding: 10px 14px;
     font-size: 1rem;
-    position: relative;
+    position: sticky; /* was relative */
   }
 
   .navbar span {

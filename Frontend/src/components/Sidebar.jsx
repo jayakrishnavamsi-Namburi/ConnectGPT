@@ -88,18 +88,17 @@ function Sidebar() {
   return (
     <>
       {/* Toggle button - show only when sidebar is closed */}
-      {!sidebarOpen && (
-        <button 
-          className="sidebar-toggle-button" 
-          onClick={toggleSidebar} 
-          aria-label="Open sidebar menu"
-        >
-          <i className="fa-solid fa-bars"></i>
-        </button>
-      )}
+       {!sidebarOpen && (
+    <button 
+      className="sidebar-toggle-button" 
+      onClick={toggleSidebar} 
+      aria-label="Open sidebar menu"
+    >
+      <i className="fa-solid fa-bars"></i>
+    </button>
+  )}
 
-      {/* Overlay */}
-      {sidebarOpen && <div className="sidebar-overlay" onClick={toggleSidebar}></div>}
+  {sidebarOpen && <div className="sidebar-overlay" onClick={toggleSidebar}></div>}
 
       <section className={`sidebar ${sidebarOpen ? "open" : ""}`}>
         {/* Close button inside sidebar */}

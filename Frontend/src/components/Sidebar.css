@@ -1,6 +1,7 @@
 /* ---------------------- Sidebar Base ---------------------- */
 .sidebar {
   width: 350px;
+  position: fixed; /* keep it visible when scrolling */
   background: var(--bg-header);
   box-shadow: 3px 0 48px rgba(44,44,84,0.18);
   display: flex;
@@ -10,13 +11,13 @@
   height: 100vh;
   padding: 16px 0 0 0;
   position: relative;
-  z-index: 30;
+  z-index: 2000;   /* higher than sidebar/overlay */
   border-right: 1px solid var(--border-color);
   /* border-radius: 17px 0 0 17px; */
 }
 
 .sidebar-top {
-  padding: 0 18px 10px 18px;
+  padding: 18px 18px 10px 18px;
 }
 .history{
   margin-left: 5rem;

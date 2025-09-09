@@ -109,6 +109,10 @@ body[data-theme="dark"] {
   font-size: var(--chat-font-size);
 }
 
+body, html {
+  margin: 0;
+  padding: 0;
+}
 
 
 :root {
